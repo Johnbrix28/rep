@@ -1,0 +1,10 @@
+# Manuscript PDFs must never be reachable by URL.
+# They are delivered only through secure-document.php after permission checks.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
+Options -Indexes
